@@ -1,4 +1,4 @@
-#p5js-express-websockets-app
+# p5js-express-socket.io-app
 #### p5js appliction built with express and socket.io that does the following
 
 - Allows you to draw points by moving your mouse on a canvas at a rate of up to 10 points a second that will emit to a socket that will update the canvas on the receive route and save them into a JSON file
@@ -8,12 +8,12 @@
 - Average X and Y speeds of every region hit will be displayed at the bottom of the receive route
 
 
-##How to run
+## How to run
 
 - `npm i`
 - `npm run start`
 
-##Routes
+## Routes
 
 ###/
 The root route is where you will move your mouse on the canvas to send points over to the receive canvas on the receive route. 

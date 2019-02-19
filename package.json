@@ -1,5 +1,5 @@
 {
-  "name": "p5js-express-websockets-app",
+  "name": "p5js-express-socket.io-app",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
