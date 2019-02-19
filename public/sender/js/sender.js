@@ -2,7 +2,7 @@ const socket = io.connect('http://localhost:3002');
 const circleSize = 5;
 let points = [];
 let throttledSendCoords;
-let second = 0;
+let batch = 0;
 
 //Creates the canvas and sets the color mode as well as the throttling
 function setup() {
@@ -10,10 +10,10 @@ function setup() {
     background(0);
     colorMode(HSB);
 
-    //Make sure we only sendCoords once per second and group each batch by the seconds variables
+    //Make sure we only sendCoords once per second and group each batch by the batch variable
     throttledSendCoords = _.throttle((ps) => {
         sendCoords(ps);
-        second += 1;
+        batch += 1;
     }, 1000);
 }
 
@@ -30,7 +30,7 @@ function mouseMoved() {
             points.push({x: mouseX, y: mouseY, timestamp: new Date().toTimeString()});
         }
 
-        //Only calls every seconde since it's being throttled
+        //Only calls every second since it's being throttled
         throttledSendCoords(points);
     }
 }
@@ -40,10 +40,10 @@ function sendCoords(points) {
     if (!points) return;
 
     //Log to show that this is being called every second
-    console.log('I am only being called every second when the mouse is moving :)', second);
+    console.log('I am only being called every second when the mouse is moving :) here is the batch #', batch);
 
     const firstTenPoints = points.splice(0, 10).map(p => {
-        p.second = second;
+        p.batch = batch;
         return p;
     });
 

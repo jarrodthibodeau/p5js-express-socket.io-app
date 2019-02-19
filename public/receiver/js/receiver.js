@@ -59,11 +59,11 @@ function draw() {
 }
 
 function calculateHitPixels(index) {
-    //Grabs all points within a grouping based on the second and determines the x and y speed by
+    //Grabs all points within a grouping based on the batch and determines the x and y speed by
     //getting the first and last values of the grouping
-    const pointsWithinSecond = points.filter(p => p.second === points[count].second);
-    const xSpeed = pointsWithinSecond[0].x - pointsWithinSecond[pointsWithinSecond.length - 1].x;
-    const ySpeed = pointsWithinSecond[0].y - pointsWithinSecond[pointsWithinSecond.length - 1].y;
+    const pointsWithinBatch = points.filter(p => p.batch === points[count].batch);
+    const xSpeed = pointsWithinBatch[0].x - pointsWithinBatch[pointsWithinBatch.length - 1].x;
+    const ySpeed = pointsWithinBatch[0].y - pointsWithinBatch[pointsWithinBatch.length - 1].y;
 
     //Changing color of the rect to signify that it's been hit
     fill(255, 255, 100);
@@ -91,6 +91,7 @@ function calculateHitPixels(index) {
     }, 0) / ySpeeds.length;
 
 
+    //We get some crazy numbers for the avg if we don't use toFixed here
     document.querySelector('#avgRegionSpeed').textContent = `Average Speed Across All Regions: X = ${xAvg.toFixed(2)} pixels, Y = ${yAvg.toFixed(2)} pixels`;
 }
 
