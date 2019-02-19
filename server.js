@@ -34,7 +34,17 @@ app.get('/receive', (req, res) => {
 });
 
 app.get('/coords', (req, res) => {
-    res.sendFile(path.join(__dirname) + '/coordinates.json');
+    fs.readFile('coordinates.json', 'utf-8', (err) => {
+        if (err && err.errno === -2) {
+            console.log('Coords not available, please draw on the root canvas');
+        } else if (err && err.errno !== -2) {
+            return err;
+        } else {
+            res.sendFile(path.join(__dirname) + '/coordinates.json');
+        }
+    });
+
+   
 });
 
 io.origins('*:*');

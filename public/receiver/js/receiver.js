@@ -62,8 +62,8 @@ function calculateHitPixels(index) {
     //Grabs all points within a grouping based on the second and determines the x and y speed by
     //getting the first and last values of the grouping
     const pointsWithinSecond = points.filter(p => p.second === points[count].second);
-    const xSpeed = Math.abs(pointsWithinSecond[0].x - pointsWithinSecond[pointsWithinSecond.length - 1].x);
-    const ySpeed = Math.abs(pointsWithinSecond[0].y - pointsWithinSecond[pointsWithinSecond.length - 1].y);
+    const xSpeed = pointsWithinSecond[0].x - pointsWithinSecond[pointsWithinSecond.length - 1].x;
+    const ySpeed = pointsWithinSecond[0].y - pointsWithinSecond[pointsWithinSecond.length - 1].y;
 
     //Changing color of the rect to signify that it's been hit
     fill(255, 255, 100);
@@ -74,7 +74,7 @@ function calculateHitPixels(index) {
     //Updating Has Hit and Cursor Speed text in the UI
     document.querySelector(`#region${index + 1}HasHit`).textContent = `Has Hit: ${rects[index].hasHit}`;
     document.querySelector(`#region${index + 1}CursorSpeed`).textContent = `
-      Cursor Speed:  X = ${xSpeed} p/s, Y = ${ySpeed} p/s
+      Cursor Speed:  X = ${xSpeed} pixels, Y = ${ySpeed} pixels
     `;
 
     //Push the xSpeeds and ySpeeds to speeds array
@@ -91,7 +91,7 @@ function calculateHitPixels(index) {
     }, 0) / ySpeeds.length;
 
 
-    document.querySelector('#avgRegionSpeed').textContent = `Average Speed Across All Regions: X = ${xAvg.toFixed(2)} p/s, Y = ${yAvg.toFixed(2)} p/s`;
+    document.querySelector('#avgRegionSpeed').textContent = `Average Speed Across All Regions: X = ${xAvg.toFixed(2)} pixels, Y = ${yAvg.toFixed(2)} pixels`;
 }
 
 //Update the points when data received from socket
