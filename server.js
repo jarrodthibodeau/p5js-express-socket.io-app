@@ -13,13 +13,12 @@ server.listen(port, () => {
     fs.unlink('coordinates.json', (err) => {
         if (err && err.errno === -2) {
             console.log('Coords don\'t exist, please carry on');
-        } else if (err && err.errno !== -2 ) {
+        } else if (err && err.errno !== -2) {
             return err;
         } else {
             console.log('Coordinates have been deleted');
         }
     });
-    
 });
 
 app.use(express.static('public'));
@@ -43,8 +42,6 @@ app.get('/coords', (req, res) => {
             res.sendFile(path.join(__dirname) + '/coordinates.json');
         }
     });
-
-   
 });
 
 io.origins('*:*');
@@ -59,7 +56,7 @@ io.on('connection', function (socket) {
             if (d) {
                 d = JSON.parse(d);
                 d = d.concat(data);
-            } 
+            }
 
             //If there is nothing in the file, we want to use to use the first array 
             if (err && err.errno === -2) {
