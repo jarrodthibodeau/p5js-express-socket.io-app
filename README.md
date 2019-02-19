@@ -15,16 +15,16 @@
 
 ## Routes
 
-###/
+### /
 The root route is where you will move your mouse on the canvas to send points over to the receive canvas on the receive route. 
 
-###/receive
+### /receive
 This route will display all of the points that you have drawn on the root route and check to see if any of the points intersect with any of the 10 randomly places rectangles. If a intersection, occurs the stats to that regions intersection will be updated. If you draw on the root canvas while having the receive canvas open, you will see it update in real time
 
-###/coords
+### /coords
 Retrieves the coordinates.json file if it exists
 
-##Caveats 
+## Caveats 
 
 - As of right now, the application is not very responsive, it will be updated to be responsive however in the future
 - Whenever, you start up the server, it will delete the current coordinates that exist if any do exist, so please do keep this in mind if you plan to stop and start the server a lot
