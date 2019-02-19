@@ -1,7 +1,8 @@
 html, body {
     height: 100%;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     font-family: 'Roboto', sans-serif;
 }
@@ -13,11 +14,13 @@ canvas {
 }
 
 ul {
-    width: 380px;
+    width: 200px;
+    font-size: 10px;
 }
 
 #avgRegionSpeed {
     position: absolute;
     text-align: center;
-    bottom: 30px;
+    bottom: 10px;
+    font-size: 12px;
 }
