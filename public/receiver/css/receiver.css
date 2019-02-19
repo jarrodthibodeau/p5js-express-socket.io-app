@@ -1,0 +1,23 @@
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+canvas {
+    background: black;
+    height: 500px;
+    width: 500px;
+}
+
+ul {
+    width: 360px;
+}
+
+#avgRegionSpeed {
+    position: absolute;
+    text-align: center;
+    bottom: 30px;
+}
